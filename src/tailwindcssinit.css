@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;
+
+@layer base {
+  .default-text {
+    @apply text-black dark:text-white;
+  }
+  h1 {
+    @apply text-2xl default-text;
+  }
+  h2 {
+    @apply text-xl default-text;
+  }
+  h3 {
+    @apply text-lg default-text;
+  }
+  h4 {
+    @apply text-base default-text;
+  }
+  h5 {
+    @apply text-sm default-text;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex justify-center align-middle transition-all duration-300 py-2 px-4 rounded-full disabled:contrast-50 hover:contrast-75 default-text;
+  }
+}
+
+@layer utilities {
+  .filter-none {
+    filter: none;
+  }
+  .filter-grayscale {
+    filter: grayscale(100%);
+  }
+}
