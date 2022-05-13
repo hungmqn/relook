@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/relook/static/css/main.c21b80e9.css",
+    "main.js": "/relook/static/js/main.2ffbb52c.js",
+    "static/js/787.a23a4e1b.chunk.js": "/relook/static/js/787.a23a4e1b.chunk.js",
+    "index.html": "/relook/index.html",
+    "main.c21b80e9.css.map": "/relook/static/css/main.c21b80e9.css.map",
+    "main.2ffbb52c.js.map": "/relook/static/js/main.2ffbb52c.js.map",
+    "787.a23a4e1b.chunk.js.map": "/relook/static/js/787.a23a4e1b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c21b80e9.css",
+    "static/js/main.2ffbb52c.js"
+  ]
+}
