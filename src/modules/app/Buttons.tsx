@@ -6,7 +6,7 @@ import Spacer from '../../components/Spacer';
 const Buttons = () => {
   return (
     <div>
-      <h3>Buttons</h3>
+      <h3>Button</h3>
       <Spacer direction="vertical" className="h-5" />
       <div>
         <h5>Default</h5>
@@ -15,6 +15,12 @@ const Buttons = () => {
         <Button text="Loading" loading />
         <Spacer direction="horizontal" className="w-3" />
         <Button text="Disabled" disabled />
+        <Spacer direction="horizontal" className="w-3" />
+        <Button size="small" text="Small" />
+        <Spacer direction="horizontal" className="w-3" />
+        <Button size="medium" text="Medium" />
+        <Spacer direction="horizontal" className="w-3" />
+        <Button size="large" text="Large" />
       </div>
       <Spacer direction="vertical" className="h-3" />
       <div>
