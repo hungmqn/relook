@@ -5,7 +5,6 @@ import DarkMode from './DarkMode';
 import Buttons from './Buttons';
 import TextFields from './TextFields';
 import Popovers from './Popovers';
-import Tables from './Tables';
 
 const App = () => {
   return (
@@ -21,13 +20,19 @@ const App = () => {
         <DarkMode />
       </aside>
       <div className="p-4 bg-gray-50 dark:bg-slate-800 flex-grow">
+        <div className="border-b border-b-grey-dark dark:border-grey p-4 text-center py-2 sm:hidden">
+          <h1 className="text-gray-900 dark:text-gray-100 font-semibold">
+            Relook
+          </h1>
+          <DarkMode />
+        </div>
+        <Spacer direction="vertical" className="h-5" />
         <Buttons />
         <Spacer direction="vertical" className="h-5" />
         <TextFields />
         <Spacer direction="vertical" className="h-5" />
         <Popovers />
-        <Spacer direction="vertical" className="h-5" />
-        <Tables />
+        <Spacer direction="vertical" className="h-40" />
       </div>
     </div>
   );

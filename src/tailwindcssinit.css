@@ -4,29 +4,29 @@
 @tailwind variants;
 
 @layer base {
-  :root {
-    color-scheme: light dark;
-  }
   .default-text {
     @apply text-black dark:text-white;
   }
+  :root {
+    color-scheme: light dark;
+  }
+  body {
+    @apply default-text;
+  }
   h1 {
-    @apply text-2xl default-text;
+    @apply text-2xl font-semibold;
   }
   h2 {
-    @apply text-xl default-text;
+    @apply text-xl font-semibold;
   }
   h3 {
-    @apply text-lg default-text;
+    @apply text-lg font-semibold;
   }
   h4 {
-    @apply text-base default-text;
+    @apply text-base font-semibold;
   }
   h5 {
-    @apply text-sm default-text;
-  }
-  label {
-    @apply default-text;
+    @apply text-sm font-semibold;
   }
 }
 

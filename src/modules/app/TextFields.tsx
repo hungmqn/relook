@@ -17,15 +17,15 @@ const TextFields = () => (
         label="With very very long label"
       />
       <Spacer direction="vertical" className="h-5" />
-      <TextField placeholder="Disabled" className="w-40" disabled />
-      <Spacer direction="vertical" className="h-5" />
       <TextField placeholder="Success" className="w-40" status="success" />
-      <Spacer direction="vertical" className="h-5" />
+      <Spacer direction="horizontal" className="w-3" />
       <TextField placeholder="Warning" className="w-40" status="warning" />
-      <Spacer direction="vertical" className="h-5" />
+      <Spacer direction="horizontal" className="w-3" />
       <TextField placeholder="Danger" className="w-40" status="danger" />
-      <Spacer direction="vertical" className="h-5" />
+      <Spacer direction="horizontal" className="w-3" />
       <TextField placeholder="Error" className="w-40" status="error" />
+      <Spacer direction="horizontal" className="w-3" />
+      <TextField placeholder="Disabled" className="w-40" disabled />
     </div>
   </div>
 );

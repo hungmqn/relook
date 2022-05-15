@@ -81,7 +81,7 @@ const DarkMode = () => {
   };
 
   return (
-    <div className="flex space-x-3">
+    <div className="sm:flex space-x-3 text-center">
       <Button
         onClick={handleToggleTheme}
         className="w-30"

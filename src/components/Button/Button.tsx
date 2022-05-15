@@ -26,6 +26,8 @@ export type ButtonProps = BaseButtonProps & {
   disabled?: boolean;
   style?: React.CSSProperties;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  onMouseEnter?: React.MouseEventHandler<HTMLButtonElement>;
+  onMouseLeave?: React.MouseEventHandler<HTMLButtonElement>;
 };
 
 const getButtonCssClasses = ({
@@ -126,6 +128,8 @@ const InternalButton = (
     className = '',
     style = {},
     onClick,
+    onMouseEnter,
+    onMouseLeave,
     ...props
   }: ButtonProps,
   ref: React.ForwardedRef<HTMLButtonElement>
@@ -137,6 +141,8 @@ const InternalButton = (
       className={`btn ${buttonSizeCssClasses} ${buttonCssClasses} ${className}`}
       ref={ref}
       onClick={loading ? undefined : onClick}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
       disabled={disabled}
       style={style}
       type={type}
