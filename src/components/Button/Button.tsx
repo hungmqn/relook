@@ -1,20 +1,21 @@
 import React from 'react';
 import Spacer from '../Spacer';
 
-const ButtonVariants = ['filled', 'outlined', 'link'];
-export type ButtonVariant = typeof ButtonVariants[number];
-const ButtonIntents = ['primary', 'success', 'warning', 'danger', 'error'];
-export type ButtonIntent = typeof ButtonIntents[number];
-const ButtonSizes = ['small', 'medium', 'large'];
-export type ButtonSize = typeof ButtonSizes[number];
-const ButtonTypes = ['submit', 'reset', 'button'];
-export type ButtonType = typeof ButtonTypes[number];
+export type ButtonVariant = 'filled' | 'outlined' | 'link';
+export type ButtonIntent =
+  | 'primary'
+  | 'success'
+  | 'warning'
+  | 'danger'
+  | 'error';
+export type ButtonSize = 'small' | 'medium' | 'large';
+export type ButtonType = 'submit' | 'reset' | 'button';
 
 export type BaseButtonProps = {
-  variant?: 'filled' | 'outlined' | 'link';
-  intent?: 'primary' | 'success' | 'warning' | 'danger' | 'error';
-  size?: 'small' | 'medium' | 'large';
-  type?: 'submit' | 'reset' | 'button';
+  variant?: ButtonVariant;
+  intent?: ButtonIntent;
+  size?: ButtonSize;
+  type?: ButtonType;
 };
 
 export type ButtonProps = BaseButtonProps & {
@@ -25,13 +26,13 @@ export type ButtonProps = BaseButtonProps & {
   disabled?: boolean;
   style?: React.CSSProperties;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  onMouseEnter?: React.MouseEventHandler<HTMLButtonElement>;
+  onMouseLeave?: React.MouseEventHandler<HTMLButtonElement>;
 };
 
 const getButtonCssClasses = ({
   variant = 'filled',
   intent = 'primary',
-  size = 'medium',
-  type = 'button',
 }: BaseButtonProps): string => {
   switch (variant) {
     case 'filled':
@@ -84,6 +85,19 @@ const getButtonCssClasses = ({
   }
 };
 
+const getButtonSizeCssClasses = (size: ButtonSize) => {
+  switch (size) {
+    case 'small':
+      return 'text-sm py-1 px-2';
+    case 'medium':
+      return 'text-base py-2 px-4';
+    case 'large':
+      return 'text-xl py-3 px-6';
+    default:
+      return 'text-base';
+  }
+};
+
 const SpinnerIcon = () => (
   <svg
     role="status"
@@ -114,18 +128,24 @@ const InternalButton = (
     className = '',
     style = {},
     onClick,
+    onMouseEnter,
+    onMouseLeave,
     ...props
   }: ButtonProps,
   ref: React.ForwardedRef<HTMLButtonElement>
 ) => {
-  const buttonCssClasses = getButtonCssClasses({ variant, intent, size, type });
+  const buttonCssClasses = getButtonCssClasses({ variant, intent });
+  const buttonSizeCssClasses = getButtonSizeCssClasses(size);
   return (
     <button
-      className={`btn ${buttonCssClasses} ${className}`}
+      className={`btn ${buttonSizeCssClasses} ${buttonCssClasses} ${className}`}
       ref={ref}
       onClick={loading ? undefined : onClick}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
       disabled={disabled}
       style={style}
+      type={type}
     >
       {loading && (
         <>
