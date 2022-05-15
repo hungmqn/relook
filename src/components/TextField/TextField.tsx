@@ -2,25 +2,23 @@ import React from 'react';
 
 export type TextFieldSize = 'small' | 'medium' | 'large';
 export type TextFieldType = 'submit' | 'reset' | 'textField';
+export type TextFieldStatus = 'success' | 'warning' | 'danger' | 'error';
 
 export type BaseTextFieldProps = {
-  size?: TextFieldSize;
+  label?: string;
   type?: TextFieldType;
   autoFocus?: boolean;
   disabled?: boolean;
   id?: string;
-  invalid?: boolean;
   name?: string;
+  status?: TextFieldStatus;
   onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onClick?: (e: React.MouseEvent<HTMLInputElement>) => void;
   onFocus?: (e: React.FocusEvent<HTMLInputElement>) => void;
   placeholder?: string;
-  readonly?: boolean;
   ref?: React.Ref<HTMLInputElement>;
   value?: string;
-  children?: React.ReactNode;
-  text?: string | React.ReactNode;
   className?: string;
   loading?: boolean;
   style?: React.CSSProperties;
@@ -28,20 +26,38 @@ export type BaseTextFieldProps = {
 
 export type TextFieldProps = BaseTextFieldProps;
 
+const getTextFieldCssClasses = ({
+  status,
+}: {
+  status: TextFieldStatus | undefined;
+}) => {
+  switch (status) {
+    case 'success':
+      return 'border-success dark:border-success-dark focus:border-success-dark dark:focus:border-success';
+    case 'warning':
+      return 'border-warning dark:border-warning-dark focus:border-warning-dark dark:focus:border-warning';
+    case 'danger':
+      return 'border-danger dark:border-danger-dark focus:border-danger-dark dark:focus:border-danger';
+    case 'error':
+      return 'border-error dark:border-error-dark focus:border-error-dark dark:focus:border-error';
+    default:
+      return '';
+  }
+};
+
 const InternalTextField = (
   {
+    label,
     autoFocus,
     type,
     disabled,
-    invalid,
     name,
+    status,
     onBlur,
     onChange,
     onFocus,
     onClick,
     placeholder,
-    readonly,
-    size = 'medium',
     value,
     id,
     className,
@@ -50,19 +66,28 @@ const InternalTextField = (
   }: TextFieldProps,
   ref: React.ForwardedRef<HTMLInputElement>
 ) => {
-  const textFieldCssClasses = '';
+  const textFieldCssClasses = getTextFieldCssClasses({ status });
   return (
-    <div
-      className={`${className} transition-colors duration-300 border border-grey dark:border-grey-dark rounded-md px-1 text-base hover:border-black dark:focus:border-grey`}
-      style={style}
-    >
+    <div className="inline-block w-fit">
+      {label && (
+        <div className="inline-block w-36 pr-1">
+          <label htmlFor={id}>{label}</label>
+        </div>
+      )}
       <input
         type={type}
-        className={`w-full bg-transparent outline-none ${textFieldCssClasses}`}
+        className={`text-field ${className} ${textFieldCssClasses}`}
         ref={ref}
+        onChange={onChange}
+        onBlur={onBlur}
+        onFocus={onFocus}
         onClick={onClick}
         disabled={disabled}
         placeholder={placeholder}
+        value={value}
+        style={style}
+        autoFocus={autoFocus}
+        name={name}
         {...props}
       />
     </div>

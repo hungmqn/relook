@@ -9,11 +9,11 @@ const Popovers = () => (
     <Spacer direction="vertical" className="h-5" />
     <div>
       <h5>Default</h5>
-      <TextField placeholder="Success" text="Filled" />
+      <TextField placeholder="Success" />
       <Spacer direction="horizontal" className="w-3" />
-      <TextField placeholder="Disabled" text="Filled" />
+      <TextField placeholder="Disabled" />
       <Spacer direction="horizontal" className="w-3" />
-      <TextField placeholder="Disabled" text="Filled" />
+      <TextField placeholder="Disabled" />
     </div>
   </div>
 );

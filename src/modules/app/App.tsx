@@ -20,7 +20,7 @@ const App = () => {
         <div className="flex-grow" aria-label="Menu"></div>
         <DarkMode />
       </aside>
-      <div className="p-4 dark:bg-slate-800 flex-grow">
+      <div className="p-4 bg-gray-50 dark:bg-slate-800 flex-grow">
         <Buttons />
         <Spacer direction="vertical" className="h-5" />
         <TextFields />

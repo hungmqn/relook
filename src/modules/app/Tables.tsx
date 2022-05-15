@@ -8,9 +8,9 @@ const Tables = () => (
     <h3>Table</h3>
     <div>
       <h5>Default</h5>
-      <TextField text="Filled" />
+      <TextField />
       <Spacer direction="horizontal" className="w-3" />
-      <TextField text="Filled" />
+      <TextField />
     </div>
   </div>
 );
